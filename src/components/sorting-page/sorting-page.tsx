@@ -41,7 +41,7 @@ export const SortingPage: React.FC = () => {
   const handleSortClick = (e: React.FormEvent<HTMLButtonElement>) => {
     if(sortName === 'bubble'){
       if(e.currentTarget.classList.contains('ascending')){
-        bubbleSort('ascending');
+        bubbleSort('ascending')
       }
       else{
         bubbleSort('descending');
@@ -62,7 +62,12 @@ export const SortingPage: React.FC = () => {
     arr[secondIndex] = temp;
   };
   const bubbleSort = async(sort: 'ascending' | 'descending') =>{
-    setLoading([false, true, true])
+    if(sort === 'ascending'){
+      setLoading([true, false, true])
+    }
+    else{
+      setLoading([false, true, true])
+    }
     for (let j = arr.length - 1; j >= 0; j--) {
       for (let i = 0; i < j; i++) {
           //отмечаем изменяемые элементы
@@ -85,7 +90,12 @@ export const SortingPage: React.FC = () => {
     setLoading([false, false, false])
   }
   const choiceSort = async(sort: 'ascending' | 'descending') =>{
-    setLoading([true, false, true])
+    if(sort === 'ascending'){
+      setLoading([true, false, true])
+    }
+    else{
+      setLoading([false, true, true])
+    }
     for (let i = 0; i < arr.length; i++) {
       let index = i;
       for (let j = i+1; j < arr.length; j++) {
