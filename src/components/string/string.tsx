@@ -6,13 +6,11 @@ import { Input } from "../ui/input/input";
 import { SolutionLayout } from "../ui/solution-layout/solution-layout";
 import styles from './string.module.css';
 import {DELAY_IN_MS} from '../../constants/delays'
+import { delay } from "../../utils/delay";
 type TItem = {
   value: string;
   color: ElementStates;
 }
-export const delay = (ms: number) => new Promise<void>((resolve) => {
-  setTimeout(() => resolve(), ms)
-})
 export const StringComponent: React.FC = () => {
   const [string, setString] = useState<string>('');
   const [arr, setArr] = useState<Array<TItem>>([]);
