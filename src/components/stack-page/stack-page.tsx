@@ -15,6 +15,9 @@ type TItem = {
 export const StackPage: React.FC = () => {
   const [string, setString] = useState<string>('');
   const [arr, setArr] = useState<TItem[]>([]);
+  const [loadingAdd, setLoadingAdd] = useState<boolean>(false);
+  const [loadingDel, setLoadingDel] = useState<boolean>(false);
+  const [loadingClear, setLoadingClear] = useState<boolean>(false);
   //useMemo чтобы кэшировать данные между рендерингами
   const stack = React.useMemo(() => {
     return new Stack<TItem>()
@@ -22,10 +25,8 @@ export const StackPage: React.FC = () => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
     setString(e.target.value);
   }
-  const handleClick = (e: FormEvent<HTMLFormElement> | React.FormEvent<HTMLButtonElement>) =>{
-    e.preventDefault();
-  }
   const handlePushItem = async() =>{
+    setLoadingAdd(true);
     //кладем в стек значение
     stack.push({value: string, color: ElementStates.Default});
     setString('');
@@ -36,8 +37,10 @@ export const StackPage: React.FC = () => {
     await delay(SHORT_DELAY_IN_MS);
     setArr([...arr, {value: top?.value ? top.value : '', color: ElementStates.Default}])
     await delay(SHORT_DELAY_IN_MS);
+    setLoadingAdd(false);
   }
   const handlePopItem = async() =>{
+    setLoadingDel(true);
     //выделяем цветом верхушку
     arr[arr.length - 1].color = ElementStates.Changing;
     setArr([...arr]);
@@ -47,21 +50,24 @@ export const StackPage: React.FC = () => {
     //обновляет массив
     setArr([...stack.getItems()]);
     await delay(SHORT_DELAY_IN_MS);
+    setLoadingDel(false);
   }
   const handleClearItems = async() =>{
+    setLoadingClear(true)
     stack.clear();
     setArr([...stack.getItems()]);
     await delay(SHORT_DELAY_IN_MS);
+    setLoadingClear(false)
   }
   return (
     <SolutionLayout title="Стек">
       <form className={`${styles.container}`} onSubmit={handlePushItem}>
         <div className={`${styles.control}`}>
-          <Input value={string} isLimitText={true} maxLength={4} onChange={onChange}/>
-          <Button text="Добавить" type="submit" onClick={handlePushItem} disabled={!string}/>
-          <Button text="Удалить" type="button" onClick={handlePopItem} disabled={stack.getSize() === 0}/>
+          <Input value={string} isLimitText={true} maxLength={4} onChange={onChange} disabled={loadingAdd}/>
+          <Button text="Добавить" type="submit" onClick={handlePushItem} disabled={!string} isLoader={loadingAdd}/>
+          <Button text="Удалить" type="button" onClick={handlePopItem} disabled={stack.getSize() === 0 || loadingAdd} isLoader={loadingDel}/>
         </div>
-        <Button text="Очистить" type="button" onClick={handleClearItems} disabled={stack.getSize() === 0}/>
+        <Button text="Очистить" type="button" onClick={handleClearItems} disabled={stack.getSize() === 0 || loadingAdd || loadingDel} isLoader={loadingClear}/>
       </form>
       <div className={`${styles.stack}`}>
         { 
