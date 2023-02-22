@@ -1,0 +1,47 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    margin: auto;
+    width: 952px;
+}
+.control{
+    display: flex;
+    flex-direction: row;
+    column-gap: 12px;
+    width: 100%;
+}
+.input{
+    max-width: 204px;
+}
+.list{
+    margin-top: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 21.5px;
+    row-gap: 55px;
+}
+.item{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 25px;
+}
+.circle{
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    align-items: center;
+    position: relative;
+}
+.topCircle{
+    position: absolute;
+    top: -70px;
+}
+.bottCircle{
+    position: absolute;
+    top: 118px;
+}

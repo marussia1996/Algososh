@@ -60,11 +60,11 @@ export const QueuePage: React.FC = () => {
     <SolutionLayout title="Очередь">
       <form className={`${styles.container}`} onSubmit={handlePushItem}>
         <div className={`${styles.control}`}>
-          <Input value={string} isLimitText={true} maxLength={4} onChange={onChange} disabled={loadingAdd}/>
+          <Input value={string} isLimitText={true} maxLength={4} placeholder='Введите значение' onChange={onChange} disabled={loadingAdd}/>
           <Button text="Добавить" type="submit" onClick={handlePushItem} disabled={!string || queue.getTail() === 7 } isLoader={loadingAdd}/>
-          <Button text="Удалить" type="button" onClick={handlePopItem} disabled={loadingAdd} isLoader={loadingDel}/>
+          <Button text="Удалить" type="button" onClick={handlePopItem} disabled={loadingAdd || queue.isEmpty()} isLoader={loadingDel}/>
         </div>
-        <Button text="Очистить" type="button" onClick={handleClearItems} disabled={ loadingAdd || loadingDel} isLoader={loadingClear}/>
+        <Button text="Очистить" type="button" onClick={handleClearItems} disabled={ loadingAdd || loadingDel || queue.isEmpty()} isLoader={loadingClear}/>
       </form>
       <div className={`${styles.queue}`}>
         { 

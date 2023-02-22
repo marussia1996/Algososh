@@ -63,7 +63,7 @@ export const StackPage: React.FC = () => {
     <SolutionLayout title="Стек">
       <form className={`${styles.container}`} onSubmit={handlePushItem}>
         <div className={`${styles.control}`}>
-          <Input value={string} isLimitText={true} maxLength={4} onChange={onChange} disabled={loadingAdd}/>
+          <Input value={string} isLimitText={true} maxLength={4} placeholder='Введите значение' onChange={onChange} disabled={loadingAdd}/>
           <Button text="Добавить" type="submit" onClick={handlePushItem} disabled={!string} isLoader={loadingAdd}/>
           <Button text="Удалить" type="button" onClick={handlePopItem} disabled={stack.getSize() === 0 || loadingAdd} isLoader={loadingDel}/>
         </div>
