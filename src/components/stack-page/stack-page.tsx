@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React, { useState } from "react";
 import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 import { ElementStates } from "../../types/element-states";
 import { delay } from "../../utils/delay";

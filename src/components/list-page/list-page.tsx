@@ -146,7 +146,7 @@ export const ListPage: React.FC = () => {
       setList([...list]);
       await delay(SHORT_DELAY_IN_MS);
       //убираем цвета у кружков и стрелок
-      list.map((item)=>{ return item.color = ElementStates.Default, item.arrow = false });
+      list.map((item)=>{ return (item.color = ElementStates.Default, item.arrow = false )});
       setList([...list]);
       await delay(SHORT_DELAY_IN_MS);
       setIndex(null)
@@ -172,7 +172,7 @@ export const ListPage: React.FC = () => {
       //удаляем элеимент из массива
       list.splice(index, 1);
       //убираем цвета у кружков и стрелок
-      list.map((item)=>{ return item.color = ElementStates.Default, item.arrow = false });
+      list.map((item)=>{ return (item.color = ElementStates.Default, item.arrow = false )});
       setList([...list]);
       await delay(SHORT_DELAY_IN_MS);
       setIndex(null);

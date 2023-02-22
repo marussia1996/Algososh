@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 import { ElementStates } from "../../types/element-states";
 import { delay } from "../../utils/delay";
@@ -70,7 +70,7 @@ export const QueuePage: React.FC = () => {
         { 
           arr.map((item, index) => {
             return <Circle letter={item.value} state={item.color} 
-              head={(index === queue.getHead() && !queue.isEmpty()) || index === 6 && queue.isEmpty() && queue.getHead() === 7? 'head' : ''} 
+              head={(index === queue.getHead() && !queue.isEmpty()) || (index === 6 && queue.isEmpty() && queue.getHead() === 7)? 'head' : ''} 
               tail={index === (queue.getTail() - 1) && !queue.isEmpty()? 'tail' : ''} 
               key={index} index={index} />
           })
