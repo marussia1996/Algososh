@@ -1,13 +1,13 @@
 import React, { FormEvent, useState } from "react";
-import { SolutionLayout } from "../ui/solution-layout/solution-layout";
-import {RadioInput} from '../ui/radio-input/radio-input'
+import { SolutionLayout } from "../../ui/solution-layout/solution-layout";
+import {RadioInput} from '../../ui/radio-input/radio-input'
 import styles from './sorting-page.module.css';
-import { Button } from "../ui/button/button";
-import { Direction } from "../../types/direction";
-import { Column } from "../ui/column/column";
-import { delay } from "../../utils/delay";
-import { DELAY_IN_MS } from "../../constants/delays";
-import { ElementStates } from "../../types/element-states";
+import { Button } from "../../ui/button/button";
+import { Direction } from "../../../types/direction";
+import { Column } from "../../ui/column/column";
+import { delay } from "../../../utils/delay";
+import { DELAY_IN_MS } from "../../../constants/delays";
+import { ElementStates } from "../../../types/element-states";
 type TItem = {
   value: number;
   color: ElementStates;

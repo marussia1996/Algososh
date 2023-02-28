@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { SHORT_DELAY_IN_MS } from "../../constants/delays";
-import { ElementStates } from "../../types/element-states";
-import { delay } from "../../utils/delay";
-import { Stack } from "../stack/stack";
-import { Button } from "../ui/button/button";
-import { Circle } from "../ui/circle/circle";
-import { Input } from "../ui/input/input";
-import { SolutionLayout } from "../ui/solution-layout/solution-layout";
+import { SHORT_DELAY_IN_MS } from "../../../constants/delays";
+import { ElementStates } from "../../../types/element-states";
+import { delay } from "../../../utils/delay";
+import { Stack } from "../stack-page/utils";
+import { Button } from "../../ui/button/button";
+import { Circle } from "../../ui/circle/circle";
+import { Input } from "../../ui/input/input";
+import { SolutionLayout } from "../../ui/solution-layout/solution-layout";
 import styles from './stack-page.module.css'
+import { TOP } from "../../../constants/element-captions";
+import { MAX_LENGTH_ELEMENTS } from "../../../constants/amout-symbols";
 type TItem = {
   value: string;
   color: ElementStates;
@@ -63,7 +65,7 @@ export const StackPage: React.FC = () => {
     <SolutionLayout title="Стек">
       <form className={`${styles.container}`} onSubmit={handlePushItem}>
         <div className={`${styles.control}`}>
-          <Input value={string} isLimitText={true} maxLength={4} placeholder='Введите значение' onChange={onChange} disabled={loadingAdd}/>
+          <Input value={string} isLimitText={true} maxLength={MAX_LENGTH_ELEMENTS} placeholder='Введите значение' onChange={onChange} disabled={loadingAdd}/>
           <Button text="Добавить" type="submit" onClick={handlePushItem} disabled={!string} isLoader={loadingAdd}/>
           <Button text="Удалить" type="button" onClick={handlePopItem} disabled={stack.getSize() === 0 || loadingAdd} isLoader={loadingDel}/>
         </div>
@@ -72,7 +74,7 @@ export const StackPage: React.FC = () => {
       <div className={`${styles.stack}`}>
         { 
           arr.map((item, index) => {
-            return <Circle letter={item.value} state={item.color} key={index} index={index} head={(stack.getSize() - 1) === index ?'top' : ''}/>
+            return <Circle letter={item.value} state={item.color} key={index} index={index} head={(stack.getSize() - 1) === index ? TOP : ''}/>
           })
         }
       </div>

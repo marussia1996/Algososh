@@ -1,12 +1,12 @@
 import React, { FormEvent, useState } from "react";
-import { ElementStates } from "../../types/element-states";
-import { Button } from "../ui/button/button";
-import { Circle } from "../ui/circle/circle";
-import { Input } from "../ui/input/input";
-import { SolutionLayout } from "../ui/solution-layout/solution-layout";
+import { ElementStates } from "../../../types/element-states";
+import { Button } from "../../ui/button/button";
+import { Circle } from "../../ui/circle/circle";
+import { Input } from "../../ui/input/input";
+import { SolutionLayout } from "../../ui/solution-layout/solution-layout";
 import styles from './string.module.css';
-import {DELAY_IN_MS} from '../../constants/delays'
-import { delay } from "../../utils/delay";
+import {DELAY_IN_MS} from '../../../constants/delays'
+import { delay } from "../../../utils/delay";
 type TItem = {
   value: string;
   color: ElementStates;
@@ -18,6 +18,8 @@ export const StringComponent: React.FC = () => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
     setString(e.target.value);
   }
+  //максимальная длина строки
+  const MAX_LENGTH_STRING = 11;
   const handleClick = (e: FormEvent<HTMLFormElement> | React.FormEvent<HTMLButtonElement>) =>{
     e.preventDefault();
     const word = string.split('').map((value) => ({value, color: ElementStates.Default}));
@@ -62,7 +64,7 @@ export const StringComponent: React.FC = () => {
   return (
     <SolutionLayout title="Строка">
       <form className={`${styles.container}`} onSubmit={handleClick}>
-        <Input isLimitText={true} maxLength={11} onChange={onChange}></Input>
+        <Input isLimitText={true} maxLength={MAX_LENGTH_STRING} onChange={onChange}></Input>
         <Button text='Развернуть' disabled={string.length > 0 ? false: true} type="submit" isLoader={loading}></Button>
       </form>
       <div  className={`${styles.word}`}>

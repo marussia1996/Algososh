@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import { SHORT_DELAY_IN_MS } from "../../constants/delays";
-import { ElementStates } from "../../types/element-states";
-import { delay } from "../../utils/delay";
-import { LinkedList } from "../list/list";
-import { Button } from "../ui/button/button";
-import { Circle } from "../ui/circle/circle";
-import { ArrowIcon } from "../ui/icons/arrow-icon";
-import { Input } from "../ui/input/input";
-import { SolutionLayout } from "../ui/solution-layout/solution-layout";
+import { SHORT_DELAY_IN_MS } from "../../../constants/delays";
+import { ElementStates } from "../../../types/element-states";
+import { delay } from "../../../utils/delay";
+import { LinkedList } from "../list-page/utils";
+import { Button } from "../../ui/button/button";
+import { Circle } from "../../ui/circle/circle";
+import { ArrowIcon } from "../../ui/icons/arrow-icon";
+import { Input } from "../../ui/input/input";
+import { SolutionLayout } from "../../ui/solution-layout/solution-layout";
 import styles from './list-page.module.css'
+import { CHANGING, DEFAULT } from "../../../constants/element-colors";
+import { HEAD, TAIL } from "../../../constants/element-captions";
+import { MAX_LENGTH_ELEMENTS } from "../../../constants/amout-symbols";
 
 type TListItem = {
   value: string;
@@ -25,7 +28,8 @@ type TListItem = {
 export const ListPage: React.FC = () => {
   const [value, setValue] = useState<string>('');
   const [index, setIndex] = useState<number | null>(null);
-  const [list, setList] = useState<TListItem[]>([{value: '32', color: ElementStates.Default}, {value: '2', color: ElementStates.Default}, {value: '70', color: ElementStates.Default}]);
+  const defaultList = [{value: '32', color: ElementStates.Default}, {value: '2', color: ElementStates.Default}, {value: '70', color: ElementStates.Default}]
+  const [list, setList] = useState<TListItem[]>(defaultList);
   const linkedList = React.useMemo(() => {
     return new LinkedList<string>(['32', '2', '70']);
   },[])
@@ -184,7 +188,7 @@ export const ListPage: React.FC = () => {
     <SolutionLayout title="Связный список">
       <form className={`${styles.container}`}>
         <div className={`${styles.control}`}>
-          <Input value={value} extraClass={`${styles.input}`} isLimitText={true} maxLength={4} placeholder='Введите значение' onChange={onChangeVal}/>
+          <Input value={value} extraClass={`${styles.input}`} isLimitText={true} maxLength={MAX_LENGTH_ELEMENTS} placeholder='Введите значение' onChange={onChangeVal}/>
           <Button linkedList="small" text="Добавить в head" type="button" onClick={addInHead} isLoader={loadingAddH} disabled={value.length === 0 || loadingAddToI || loadingRemToI}/>
           <Button linkedList="small" text="Добавить в tail" type="button" onClick={addInTail} isLoader={loadingAddT} disabled={value.length === 0 || loadingAddToI || loadingRemToI}/>
           <Button linkedList="small" text="Удалить из head" type="button" onClick={deleteFromHead} isLoader={loadingDelH} disabled={list.length === 0 || loadingAddToI || loadingRemToI}/>
@@ -206,14 +210,14 @@ export const ListPage: React.FC = () => {
                     item.topCircle &&
                     <Circle letter={item.smallCircle?.value} state={item.smallCircle?.color} isSmall={true} extraClass={`${styles.topCircle}`}/> 
                   }
-                  <Circle letter={item.value} state={item.color} index={index} head={(index === 0) && !item.topCircle ? 'head' : ''} tail={(index === list.length - 1) && !item.bottCircle ? 'tail' : ''}/>
+                  <Circle letter={item.value} state={item.color} index={index} head={(index === 0) && !item.topCircle ? HEAD : ''} tail={(index === list.length - 1) && !item.bottCircle ? TAIL : ''}/>
                   {
                     item.bottCircle &&
                     <Circle letter={item.smallCircle?.value} state={item.smallCircle?.color} isSmall={true} extraClass={`${styles.bottCircle}`}/> 
                   }
                 </div>
                 {list.length - 1 !== index &&
-                  <ArrowIcon fill={item.arrow ? '#D252E1' : '#0032FF'}/>
+                  <ArrowIcon fill={item.arrow ? CHANGING : DEFAULT}/>
                 }
               </div>
             )

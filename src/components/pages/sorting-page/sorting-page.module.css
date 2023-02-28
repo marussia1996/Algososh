@@ -24,7 +24,7 @@
     margin: 0 auto;
     display: flex;
     flex-direction: row;
-    align-items: end;
+    align-items: flex-end;
     justify-content: center;
     column-gap: 10px;
     height: 340px;

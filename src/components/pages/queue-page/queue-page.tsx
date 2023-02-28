@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { SHORT_DELAY_IN_MS } from "../../constants/delays";
-import { ElementStates } from "../../types/element-states";
-import { delay } from "../../utils/delay";
-import { Queue } from "../queue/queue";
-import { Button } from "../ui/button/button";
-import { Circle } from "../ui/circle/circle";
-import { Input } from "../ui/input/input";
-import { SolutionLayout } from "../ui/solution-layout/solution-layout";
+import { SHORT_DELAY_IN_MS } from "../../../constants/delays";
+import { ElementStates } from "../../../types/element-states";
+import { delay } from "../../../utils/delay";
+import { Queue } from "../queue-page/utils";
+import { Button } from "../../ui/button/button";
+import { Circle } from "../../ui/circle/circle";
+import { Input } from "../../ui/input/input";
+import { SolutionLayout } from "../../ui/solution-layout/solution-layout";
 import styles from './queue-page.module.css'
+import { HEAD, TAIL } from "../../../constants/element-captions";
+import { MAX_LENGTH_ELEMENTS } from "../../../constants/amout-symbols";
 type TItem = {
   value: string;
   color: ElementStates;
@@ -22,6 +24,8 @@ export const QueuePage: React.FC = () => {
   const [loadingDel, setLoadingDel] = useState<boolean>(false);
   const [loadingClear, setLoadingClear] = useState<boolean>(false);
 
+  //максимальное количество элементов в очереди
+  const MAX_AMOUNT_ELEMENTS = 7;
   const onChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
     setString(e.target.value);
   }
@@ -60,8 +64,8 @@ export const QueuePage: React.FC = () => {
     <SolutionLayout title="Очередь">
       <form className={`${styles.container}`} onSubmit={handlePushItem}>
         <div className={`${styles.control}`}>
-          <Input value={string} isLimitText={true} maxLength={4} placeholder='Введите значение' onChange={onChange} disabled={loadingAdd}/>
-          <Button text="Добавить" type="submit" onClick={handlePushItem} disabled={!string || queue.getTail() === 7 } isLoader={loadingAdd}/>
+          <Input value={string} isLimitText={true} maxLength={MAX_LENGTH_ELEMENTS} placeholder='Введите значение' onChange={onChange} disabled={loadingAdd}/>
+          <Button text="Добавить" type="submit" onClick={handlePushItem} disabled={!string || queue.getTail() === MAX_AMOUNT_ELEMENTS } isLoader={loadingAdd}/>
           <Button text="Удалить" type="button" onClick={handlePopItem} disabled={loadingAdd || queue.isEmpty()} isLoader={loadingDel}/>
         </div>
         <Button text="Очистить" type="button" onClick={handleClearItems} disabled={ loadingAdd || loadingDel || queue.isEmpty()} isLoader={loadingClear}/>
@@ -70,8 +74,8 @@ export const QueuePage: React.FC = () => {
         { 
           arr.map((item, index) => {
             return <Circle letter={item.value} state={item.color} 
-              head={(index === queue.getHead() && !queue.isEmpty()) || (index === 6 && queue.isEmpty() && queue.getHead() === 7)? 'head' : ''} 
-              tail={index === (queue.getTail() - 1) && !queue.isEmpty()? 'tail' : ''} 
+              head={(index === queue.getHead() && !queue.isEmpty()) || (index === 6 && queue.isEmpty() && queue.getHead() === MAX_AMOUNT_ELEMENTS)? HEAD : ''} 
+              tail={index === (queue.getTail() - 1) && !queue.isEmpty()? TAIL : ''} 
               key={index} index={index} />
           })
         }
