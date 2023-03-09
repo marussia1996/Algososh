@@ -1,0 +1,23 @@
+.container{
+    max-width: 830px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 80px;
+    justify-content: center;
+    margin: auto;
+}
+.control{
+    width: 630px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 12px;
+}
+.queue{
+    margin-top: 52px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 16px;
+    row-gap: 55px;
+}
