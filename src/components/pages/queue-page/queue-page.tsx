@@ -64,13 +64,13 @@ export const QueuePage: React.FC = () => {
     <SolutionLayout title="Очередь">
       <form className={`${styles.container}`} onSubmit={handlePushItem}>
         <div className={`${styles.control}`}>
-          <Input value={string} isLimitText={true} maxLength={MAX_LENGTH_ELEMENTS} placeholder='Введите значение' onChange={onChange} disabled={loadingAdd}/>
-          <Button text="Добавить" type="submit" onClick={handlePushItem} disabled={!string || queue.getTail() === MAX_AMOUNT_ELEMENTS } isLoader={loadingAdd}/>
-          <Button text="Удалить" type="button" onClick={handlePopItem} disabled={loadingAdd || queue.isEmpty()} isLoader={loadingDel}/>
+          <Input data-testid="val" value={string} isLimitText={true} maxLength={MAX_LENGTH_ELEMENTS} placeholder='Введите значение' onChange={onChange} disabled={loadingAdd}/>
+          <Button data-testid="add" text="Добавить" type="submit" onClick={handlePushItem} disabled={!string || queue.getTail() === MAX_AMOUNT_ELEMENTS } isLoader={loadingAdd}/>
+          <Button data-testid="del" text="Удалить" type="button" onClick={handlePopItem} disabled={loadingAdd || queue.isEmpty()} isLoader={loadingDel}/>
         </div>
-        <Button text="Очистить" type="button" onClick={handleClearItems} disabled={ loadingAdd || loadingDel || queue.isEmpty()} isLoader={loadingClear}/>
+        <Button data-testid="clear" text="Очистить" type="button" onClick={handleClearItems} disabled={ loadingAdd || loadingDel || queue.isEmpty()} isLoader={loadingClear}/>
       </form>
-      <div className={`${styles.queue}`}>
+      <div data-testid="queue" className={`${styles.queue}`}>
         { 
           arr.map((item, index) => {
             return <Circle letter={item.value} state={item.color} 

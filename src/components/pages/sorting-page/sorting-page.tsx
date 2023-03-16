@@ -130,16 +130,16 @@ export const SortingPage: React.FC = () => {
     <SolutionLayout title="Сортировка массива">
       <form className={`${styles.container}`} onSubmit={handleClick}>
         <div className={`${styles.radioButtons}`}>
-          <RadioInput checked={sortName === 'choice' ? true : false} onChange={onChange} label="Выбор" value='choice' name="choice" disabled={loading[2] ? true: false}/>
-          <RadioInput checked={sortName === 'bubble' ? true : false} onChange={onChange} label="Пузырёк" value='bubble' name="bubble" disabled={loading[2] ? true: false}/>
+          <RadioInput data-testid="choice" checked={sortName === 'choice' ? true : false} onChange={onChange} label="Выбор" value='choice' name="choice" disabled={loading[2] ? true: false}/>
+          <RadioInput data-testid="bubble" checked={sortName === 'bubble' ? true : false} onChange={onChange} label="Пузырёк" value='bubble' name="bubble" disabled={loading[2] ? true: false}/>
         </div>
         <div className={`${styles.sortButtons}`}>
-          <Button type="button" text="По возрастанию" sorting={Direction.Ascending} extraClass='ascending' disabled={loading[1]} isLoader={loading[0] ? true: false} onClick={handleSortClick}/>
-          <Button type="button" text="По убыванию" sorting={Direction.Descending} extraClass='descending' disabled={loading[0]} isLoader={loading[1] ? true: false} onClick={handleSortClick}/>
+          <Button data-testid="ascending" type="button" text="По возрастанию" sorting={Direction.Ascending} extraClass='ascending' disabled={loading[1]} isLoader={loading[0] ? true: false} onClick={handleSortClick}/>
+          <Button data-testid="descending" type="button" text="По убыванию" sorting={Direction.Descending} extraClass='descending' disabled={loading[0]} isLoader={loading[1] ? true: false} onClick={handleSortClick}/>
         </div>
-        <Button type="submit" text="Новый массив" disabled={loading[2] ? true: false}/>
+        <Button data-testid="newArr" type="submit" text="Новый массив" disabled={loading[2] ? true: false}/>
       </form>
-      <div className={`${styles.array}`}>
+      <div data-testid="column" className={`${styles.array}`}>
         { arr &&
           arr.map((item, i) => {
             return <Column index={item.value} key={i} state={item.color}/>

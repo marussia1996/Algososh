@@ -65,13 +65,13 @@ export const StackPage: React.FC = () => {
     <SolutionLayout title="Стек">
       <form className={`${styles.container}`} onSubmit={handlePushItem}>
         <div className={`${styles.control}`}>
-          <Input value={string} isLimitText={true} maxLength={MAX_LENGTH_ELEMENTS} placeholder='Введите значение' onChange={onChange} disabled={loadingAdd}/>
-          <Button text="Добавить" type="submit" onClick={handlePushItem} disabled={!string} isLoader={loadingAdd}/>
-          <Button text="Удалить" type="button" onClick={handlePopItem} disabled={stack.getSize() === 0 || loadingAdd} isLoader={loadingDel}/>
+          <Input data-testid="val" value={string} isLimitText={true} maxLength={MAX_LENGTH_ELEMENTS} placeholder='Введите значение' onChange={onChange} disabled={loadingAdd}/>
+          <Button data-testid="push" text="Добавить" type="submit" onClick={handlePushItem} disabled={!string} isLoader={loadingAdd}/>
+          <Button data-testid="pop" text="Удалить" type="button" onClick={handlePopItem} disabled={stack.getSize() === 0 || loadingAdd} isLoader={loadingDel}/>
         </div>
-        <Button text="Очистить" type="button" onClick={handleClearItems} disabled={stack.getSize() === 0 || loadingAdd || loadingDel} isLoader={loadingClear}/>
+        <Button data-testid="clear" text="Очистить" type="button" onClick={handleClearItems} disabled={stack.getSize() === 0 || loadingAdd || loadingDel} isLoader={loadingClear}/>
       </form>
-      <div className={`${styles.stack}`}>
+      <div data-testid="stack" className={`${styles.stack}`}>
         { 
           arr.map((item, index) => {
             return <Circle letter={item.value} state={item.color} key={index} index={index} head={(stack.getSize() - 1) === index ? TOP : ''}/>
