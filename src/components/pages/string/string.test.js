@@ -1,7 +1,6 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
-import TestRenderer from 'react-test-renderer';
 import { StringComponent } from './string';
 
 describe('Корректно разворачивает строку: ', () => {
