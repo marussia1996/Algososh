@@ -1,4 +1,4 @@
-describe('template spec', () => {
+describe('Проверка работы страницы стек: ', () => {
   const testArr = [2,3,4,3,6];
   beforeEach(() => {
     cy.visit('http://localhost:3000/stack')
@@ -23,16 +23,10 @@ describe('template spec', () => {
       //проверяем у текущего кружка значение и цвет рамки
       cy.get("@circles").should(async($circle) => {
         expect($circle[i]).to.contain(testArr[i]);
-        expect($circle[i]).to.have.css(
-          "border",
-          '4px solid rgb(210, 82, 225)'
-        );
+        expect($circle[i]).to.have.css("border",'4px solid rgb(210, 82, 225)');
 
       await new Promise((resolve) => setTimeout(resolve, 500));
-        expect($circle).to.have.css(
-          "border",
-          '4px solid rgb(0, 50, 255)'
-        );
+        expect($circle[i]).to.have.css("border",'4px solid rgb(0, 50, 255)');
       });
     }
   });
@@ -47,16 +41,13 @@ describe('template spec', () => {
     cy.get('[data-testid="circle"]').as('circles')
     //проверяем у удаляемого кружка цвет рамки
     cy.get("@circles").should(async($circle) => {
-      expect($circle[testArr.length -1]).to.have.css(
-        "border",
-        '4px solid rgb(210, 82, 225)'
-      );
+      expect($circle[testArr.length -1]).to.have.css("border",'4px solid rgb(210, 82, 225)');
       await new Promise((resolve) => setTimeout(resolve, 500));
       //проверка что кол-во кружков уменьшилось
       expect($circle).to.have.length(testArr.length - 1)
     });
   });
-  it('Удаление из стека происходит верно', () => {
+  it('Очистка стека происходит верно', () => {
     //заполняем стек
     for(let i = 0; i < testArr.length; i++){
       cy.get('@value').type(testArr[i]);
