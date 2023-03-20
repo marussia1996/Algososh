@@ -21,10 +21,7 @@ describe('Страница reverse строки', () => {
       //проверка что кружки имеют правильное значение и цвет
       for(let i = 0; i < testString.length; i++){
         expect($circle[i]).to.have.text(testString[i]);
-        expect($circle[i]).to.have.css(
-          "border",
-          '4px solid rgb(0, 50, 255)'
-        );
+        expect($circle[i]).to.have.css("border",'4px solid rgb(0, 50, 255)');
       }
       //итерация 1
         await new Promise((resolve) => setTimeout(resolve, 1000));

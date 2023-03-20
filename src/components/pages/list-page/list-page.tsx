@@ -188,19 +188,19 @@ export const ListPage: React.FC = () => {
     <SolutionLayout title="Связный список">
       <form className={`${styles.container}`}>
         <div className={`${styles.control}`}>
-          <Input value={value} extraClass={`${styles.input}`} isLimitText={true} maxLength={MAX_LENGTH_ELEMENTS} placeholder='Введите значение' onChange={onChangeVal}/>
-          <Button linkedList="small" text="Добавить в head" type="button" onClick={addInHead} isLoader={loadingAddH} disabled={value.length === 0 || loadingAddToI || loadingRemToI}/>
-          <Button linkedList="small" text="Добавить в tail" type="button" onClick={addInTail} isLoader={loadingAddT} disabled={value.length === 0 || loadingAddToI || loadingRemToI}/>
-          <Button linkedList="small" text="Удалить из head" type="button" onClick={deleteFromHead} isLoader={loadingDelH} disabled={list.length === 0 || loadingAddToI || loadingRemToI}/>
-          <Button linkedList="small" text="Удалить из tail" type="button" onClick={deleteFromTail} isLoader={loadingDelT} disabled={list.length === 0 || loadingAddToI || loadingRemToI}/>
+          <Input data-testid="val" value={value} extraClass={`${styles.input}`} isLimitText={true} maxLength={MAX_LENGTH_ELEMENTS} placeholder='Введите значение' onChange={onChangeVal}/>
+          <Button data-testid="addH" linkedList="small" text="Добавить в head" type="button" onClick={addInHead} isLoader={loadingAddH} disabled={value.length === 0 || loadingAddToI || loadingRemToI}/>
+          <Button data-testid="addT" linkedList="small" text="Добавить в tail" type="button" onClick={addInTail} isLoader={loadingAddT} disabled={value.length === 0 || loadingAddToI || loadingRemToI}/>
+          <Button data-testid="delH" linkedList="small" text="Удалить из head" type="button" onClick={deleteFromHead} isLoader={loadingDelH} disabled={list.length === 0 || loadingAddToI || loadingRemToI}/>
+          <Button data-testid="delT" linkedList="small" text="Удалить из tail" type="button" onClick={deleteFromTail} isLoader={loadingDelT} disabled={list.length === 0 || loadingAddToI || loadingRemToI}/>
         </div>
         <div className={`${styles.control}`}>
-          <Input value={index? `${index}` : ''} extraClass={`${styles.input}`} placeholder='Введите индекс' type="number" onChange={onChangeInd} min={0} max={list.length - 1}/>
-          <Button linkedList="big" text="Добавить по индексу" type="button" onClick={addToIndex} disabled={index === null || value.length === 0 || index > list.length -1 || loadingRemToI} isLoader={loadingAddToI}/>
-          <Button linkedList="big" text="Удалить по индексу" type="button" onClick={removeToIndex} disabled={index === null || index > list.length -1 || loadingAddToI } isLoader={loadingRemToI}/>
+          <Input data-testid="index" value={index? `${index}` : ''} extraClass={`${styles.input}`} placeholder='Введите индекс' type="number" onChange={onChangeInd} min={0} max={list.length - 1}/>
+          <Button data-testid="addI" linkedList="big" text="Добавить по индексу" type="button" onClick={addToIndex} disabled={index === null || value.length === 0 || index > list.length -1 || loadingRemToI} isLoader={loadingAddToI}/>
+          <Button data-testid="delI" linkedList="big" text="Удалить по индексу" type="button" onClick={removeToIndex} disabled={index === null || index > list.length -1 || loadingAddToI } isLoader={loadingRemToI}/>
         </div>
       </form>
-      <div className={`${styles.list}`}>
+      <div data-testid="list" className={`${styles.list}`}>
         {
           list.map((item, index)=>{
             return (
