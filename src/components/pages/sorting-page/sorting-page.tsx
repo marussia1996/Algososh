@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import { SolutionLayout } from "../../ui/solution-layout/solution-layout";
 import {RadioInput} from '../../ui/radio-input/radio-input'
 import styles from './sorting-page.module.css';
@@ -22,8 +22,10 @@ export const SortingPage: React.FC = () => {
   const handleClick = (e: FormEvent<HTMLFormElement> | React.FormEvent<HTMLButtonElement>) =>{
     e.preventDefault();
     randomArr(3,17, [0,100]);
-    
   }
+  useEffect(()=>{
+    randomArr(3,17, [0,100]);
+  },[])
   const randomArr = (minLength: number, maxLength: number, interval: [number, number]) =>{
     //генерация длины массива
     const length = Math.floor(Math.random() * (maxLength - minLength + 1)) + minLength;
