@@ -35,8 +35,8 @@ export const FibonacciPage: React.FC = () => {
   return (
     <SolutionLayout title="Последовательность Фибоначчи">
      <form className={`${styles.container}`} onSubmit={handleSubmit}>
-        <Input value={number !== 0? `${number}` : ''} type="number" isLimitText={true} max={MAX_FIB} min={MIN_FIB} onChange={onChange}></Input>
-        <Button text='Рассчитать' type="submit" disabled={number > 0 && number <= MAX_FIB ? false: true} isLoader={loading}></Button>
+        <Input data-testid="val" value={number !== 0? `${number}` : ''} type="number" isLimitText={true} max={MAX_FIB} min={MIN_FIB} onChange={onChange}></Input>
+        <Button data-testid="button" text='Рассчитать' type="submit" disabled={number > 0 && number <= MAX_FIB ? false: true} isLoader={loading}></Button>
       </form>
       {/* TODO:  Вывод последовательности можно разбить на > 10 чисел и <*/}
       <div  className={`${styles.fibonacci}`}>
