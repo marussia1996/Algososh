@@ -3,15 +3,19 @@
 exports[`Тестирование компонента Circle:  Circle без буквы рендерятся без ошибок 1`] = `
 <div
   className="content "
+  data-testid="content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-testid="head"
   />
   <div
     className="circle   default"
+    data-testid="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-testid="letter"
     />
   </div>
   <p
@@ -19,6 +23,7 @@ exports[`Тестирование компонента Circle:  Circle без б
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-testid="tail"
   />
 </div>
 `;
@@ -26,15 +31,19 @@ exports[`Тестирование компонента Circle:  Circle без б
 exports[`Тестирование компонента Circle:  Circle в состоянии changing рендерятся без ошибок 1`] = `
 <div
   className="content "
+  data-testid="content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-testid="head"
   />
   <div
     className="circle   changing"
+    data-testid="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-testid="letter"
     />
   </div>
   <p
@@ -42,6 +51,7 @@ exports[`Тестирование компонента Circle:  Circle в сос
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-testid="tail"
   />
 </div>
 `;
@@ -49,15 +59,19 @@ exports[`Тестирование компонента Circle:  Circle в сос
 exports[`Тестирование компонента Circle:  Circle в состоянии default рендерятся без ошибок 1`] = `
 <div
   className="content "
+  data-testid="content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-testid="head"
   />
   <div
     className="circle   default"
+    data-testid="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-testid="letter"
     />
   </div>
   <p
@@ -65,6 +79,7 @@ exports[`Тестирование компонента Circle:  Circle в сос
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-testid="tail"
   />
 </div>
 `;
@@ -72,15 +87,19 @@ exports[`Тестирование компонента Circle:  Circle в сос
 exports[`Тестирование компонента Circle:  Circle в состоянии modified рендерятся без ошибок 1`] = `
 <div
   className="content "
+  data-testid="content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-testid="head"
   />
   <div
     className="circle   modified"
+    data-testid="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-testid="letter"
     />
   </div>
   <p
@@ -88,6 +107,7 @@ exports[`Тестирование компонента Circle:  Circle в сос
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-testid="tail"
   />
 </div>
 `;
@@ -95,17 +115,21 @@ exports[`Тестирование компонента Circle:  Circle в сос
 exports[`Тестирование компонента Circle:  Circle с head рендерятся без ошибок 1`] = `
 <div
   className="content "
+  data-testid="content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head string"
+    data-testid="head"
   >
     head
   </div>
   <div
     className="circle   default"
+    data-testid="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-testid="letter"
     />
   </div>
   <p
@@ -113,6 +137,7 @@ exports[`Тестирование компонента Circle:  Circle с head �
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-testid="tail"
   />
 </div>
 `;
@@ -120,15 +145,19 @@ exports[`Тестирование компонента Circle:  Circle с head �
 exports[`Тестирование компонента Circle:  Circle с index рендерятся без ошибок 1`] = `
 <div
   className="content "
+  data-testid="content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-testid="head"
   />
   <div
     className="circle   default"
+    data-testid="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-testid="letter"
     />
   </div>
   <p
@@ -138,6 +167,7 @@ exports[`Тестирование компонента Circle:  Circle с index 
   </p>
   <div
     className="text text_type_input text_color_input mt-4 absolute tail60 element"
+    data-testid="tail"
   />
 </div>
 `;
@@ -145,15 +175,19 @@ exports[`Тестирование компонента Circle:  Circle с index 
 exports[`Тестирование компонента Circle:  Circle с isSmall рендерятся без ошибок 1`] = `
 <div
   className="content "
+  data-testid="content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-testid="head"
   />
   <div
     className="circle  small default"
+    data-testid="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-testid="letter"
     />
   </div>
   <p
@@ -161,6 +195,7 @@ exports[`Тестирование компонента Circle:  Circle с isSmal
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-testid="tail"
   />
 </div>
 `;
@@ -168,21 +203,27 @@ exports[`Тестирование компонента Circle:  Circle с isSmal
 exports[`Тестирование компонента Circle:  Circle с react-component в head рендерятся без ошибок 1`] = `
 <div
   className="content "
+  data-testid="content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-testid="head"
   >
     <div
       className="content "
+      data-testid="content"
     >
       <div
         className="text text_type_input text_color_input mb-4 absolute head element"
+        data-testid="head"
       />
       <div
         className="circle   default"
+        data-testid="circle"
       >
         <p
           className="text text_type_circle text_color_input letter"
+          data-testid="letter"
         />
       </div>
       <p
@@ -190,14 +231,17 @@ exports[`Тестирование компонента Circle:  Circle с react-
       />
       <div
         className="text text_type_input text_color_input mt-4 absolute tail30 element"
+        data-testid="tail"
       />
     </div>
   </div>
   <div
     className="circle   default"
+    data-testid="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-testid="letter"
     />
   </div>
   <p
@@ -205,6 +249,7 @@ exports[`Тестирование компонента Circle:  Circle с react-
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-testid="tail"
   />
 </div>
 `;
@@ -212,15 +257,19 @@ exports[`Тестирование компонента Circle:  Circle с react-
 exports[`Тестирование компонента Circle:  Circle с react-component в tail рендерятся без ошибок 1`] = `
 <div
   className="content "
+  data-testid="content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-testid="head"
   />
   <div
     className="circle   default"
+    data-testid="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-testid="letter"
     />
   </div>
   <p
@@ -228,18 +277,23 @@ exports[`Тестирование компонента Circle:  Circle с react-
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-testid="tail"
   >
     <div
       className="content "
+      data-testid="content"
     >
       <div
         className="text text_type_input text_color_input mb-4 absolute head element"
+        data-testid="head"
       />
       <div
         className="circle   default"
+        data-testid="circle"
       >
         <p
           className="text text_type_circle text_color_input letter"
+          data-testid="letter"
         />
       </div>
       <p
@@ -247,6 +301,7 @@ exports[`Тестирование компонента Circle:  Circle с react-
       />
       <div
         className="text text_type_input text_color_input mt-4 absolute tail30 element"
+        data-testid="tail"
       />
     </div>
   </div>
@@ -256,15 +311,19 @@ exports[`Тестирование компонента Circle:  Circle с react-
 exports[`Тестирование компонента Circle:  Circle с tail рендерятся без ошибок 1`] = `
 <div
   className="content "
+  data-testid="content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-testid="head"
   />
   <div
     className="circle   default"
+    data-testid="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-testid="letter"
     />
   </div>
   <p
@@ -272,6 +331,7 @@ exports[`Тестирование компонента Circle:  Circle с tail �
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 string"
+    data-testid="tail"
   >
     tail
   </div>
@@ -281,15 +341,19 @@ exports[`Тестирование компонента Circle:  Circle с tail �
 exports[`Тестирование компонента Circle:  Circle с буквами рендерятся без ошибок 1`] = `
 <div
   className="content "
+  data-testid="content"
 >
   <div
     className="text text_type_input text_color_input mb-4 absolute head element"
+    data-testid="head"
   />
   <div
     className="circle   default"
+    data-testid="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-testid="letter"
     >
       we
     </p>
@@ -299,6 +363,7 @@ exports[`Тестирование компонента Circle:  Circle с бук
   />
   <div
     className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    data-testid="tail"
   />
 </div>
 `;

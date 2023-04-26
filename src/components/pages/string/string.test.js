@@ -4,6 +4,16 @@ import { BrowserRouter } from 'react-router-dom';
 import { StringComponent } from './string';
 
 describe('Корректно разворачивает строку: ', () => {
+    it("Проверка текста кнопки",()=>{
+        //рендерим компонент в виртуальном dom
+        render(
+            <BrowserRouter>
+                <StringComponent/>
+            </BrowserRouter>);
+        //находим элементы с которыми будем работать
+        const button = screen.getByTestId('button');
+        expect(button).toHaveTextContent('Развернуть')
+    })
     it('с чётным количеством символов',() => {
         //рендерим компонент в виртуальном dom
         render(

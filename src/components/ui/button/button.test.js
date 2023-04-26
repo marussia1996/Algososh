@@ -3,6 +3,11 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { Button } from './button';
 
 describe('Тестирование компонента Button', () => {
+    it("проверка текста кнопки", () => {
+        render(<Button text='Test' data-testid= 'button' />)
+        const button = screen.getByTestId('button');
+        expect(button).toHaveTextContent('Test')
+    });
     it('Кнопки с текстом рендерятся без ошибок', () => {
         const tree = TestRenderer.create(<Button text='Push'/>).toJSON();
         expect(tree).toMatchSnapshot();
